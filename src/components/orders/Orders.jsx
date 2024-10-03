@@ -6,12 +6,13 @@ import { IoCheckmarkCircle } from "react-icons/io5";
 
 
 function Orders() {
+  const baseUrl = process.env.REACT_APP_BASE_URL || "http://localhost:4000";
   const [done, setDone] = useState(false);
   const [orders, setOrders] = useState([]);
   const [all_product,setAll_product]=useState([])
 
   useEffect(() => {
-    fetch("http://localhost:4000/allproducts")
+    fetch(`${baseUrl}/allproducts`)
       .then((response) => response.json())
       .then((data) => {
         setAll_product(data);
@@ -20,7 +21,7 @@ function Orders() {
         });},[]);
         
   const fetchOrders = async () => {
-    const response = await fetch("http://localhost:4000/orders");
+    const response = await fetch(`${baseUrl}/orders`);
     const data = await response.json();
     setOrders(data);
   
@@ -31,7 +32,7 @@ function Orders() {
     
   }, []);
   const remove_order = async (id) => {
-    await fetch("http://localhost:4000/removeorder", {
+    await fetch(`${baseUrl}/removeorder`, {
       method: "POST",
       headers: {
         Accept: "application/json",

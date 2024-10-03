@@ -3,11 +3,12 @@ import"./Listproduct.css"
 import  remove from "../../assets/remove.png"
 
 function Listproduct() {
+  const baseUrl = process.env.REACT_APP_BASE_URL || "http://localhost:4000";
 
 
   const [all,setAll]=useState([]);
   const fetchInfo=async()=>{
-    const response = await fetch("http://localhost:4000/allproducts");
+    const response = await fetch(`${baseUrl}/allproducts`);
     const data = await response.json();
     
     setAll(data);
@@ -17,7 +18,7 @@ function Listproduct() {
     fetchInfo()
   },[])
   const remove_product=async(id)=>{
-    await fetch("http://localhost:4000/removeproduct",{
+    await fetch(`${baseUrl}/removeproduct`,{
       method:"POST",
       headers:{
         Accept:"application/json",

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Addproduct.css"
 import upload from "../../assets/upload.jpg"
 function Addproduct() {
+    const baseUrl = process.env.REACT_APP_BASE_URL || "http://localhost:4000";
 
     const [image, setImage] = useState(false);
     const [details, setDetails] = useState({
@@ -30,7 +31,7 @@ function Addproduct() {
         let formData =new FormData();
         let product =details;
         formData.append("product",image);
-        await fetch ("http://localhost:4000/upload",{
+        await fetch (`${baseUrl}/upload`,{
             method:"POST",
             headers:{
                 Accept:"application/json",
@@ -47,7 +48,7 @@ function Addproduct() {
                 category: "women",
               });
               setImage(false)
-            await fetch("http://localhost:4000/addproduct",{
+            await fetch(`${baseUrl}/addproduct`,{
                 method:"POST",
                 headers:{
                     Accept:"application/json",
