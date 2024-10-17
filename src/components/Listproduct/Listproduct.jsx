@@ -8,7 +8,7 @@ function Listproduct() {
 
   const [all,setAll]=useState([]);
   const fetchInfo=async()=>{
-    const response = await fetch(`https://backend-e8zy.onrender.com//allproducts`);
+    const response = await fetch(`https://backend-e8zy.onrender.com/allproducts`);
     const data = await response.json();
     
     setAll(data);
@@ -18,7 +18,7 @@ function Listproduct() {
     fetchInfo()
   },[])
   const remove_product=async(id)=>{
-    await fetch(`https://backend-e8zy.onrender.com//removeproduct`,{
+    await fetch(`https://backend-e8zy.onrender.com/removeproduct`,{
       method:"POST",
       headers:{
         Accept:"application/json",

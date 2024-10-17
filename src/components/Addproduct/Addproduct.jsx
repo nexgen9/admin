@@ -31,7 +31,7 @@ function Addproduct() {
         let formData =new FormData();
         let product =details;
         formData.append("product",image);
-        await fetch (`https://backend-e8zy.onrender.com//upload`,{
+        await fetch (`https://backend-e8zy.onrender.com/upload`,{
             method:"POST",
             headers:{
                 Accept:"application/json",
@@ -48,7 +48,7 @@ function Addproduct() {
                 category: "women",
               });
               setImage(false)
-            await fetch(`https://backend-e8zy.onrender.com//addproduct`,{
+            await fetch(`https://backend-e8zy.onrender.com/addproduct`,{
                 method:"POST",
                 headers:{
                     Accept:"application/json",

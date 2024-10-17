@@ -12,7 +12,7 @@ function Orders() {
   const [all_product,setAll_product]=useState([])
 
   useEffect(() => {
-    fetch(`https://backend-e8zy.onrender.com//allproducts`)
+    fetch(`https://backend-e8zy.onrender.com/allproducts`)
       .then((response) => response.json())
       .then((data) => {
         setAll_product(data);
@@ -21,7 +21,7 @@ function Orders() {
         });},[]);
         
   const fetchOrders = async () => {
-    const response = await fetch(`https://backend-e8zy.onrender.com//orders`);
+    const response = await fetch(`https://backend-e8zy.onrender.com/orders`);
     const data = await response.json();
     setOrders(data);
   
@@ -32,7 +32,7 @@ function Orders() {
     
   }, []);
   const remove_order = async (id) => {
-    await fetch(`https://backend-e8zy.onrender.com//removeorder`, {
+    await fetch(`https://backend-e8zy.onrender.com/removeorder`, {
       method: "POST",
       headers: {
         Accept: "application/json",
