@@ -3,12 +3,12 @@ import"./Listproduct.css"
 import  remove from "../../assets/remove.png"
 
 function Listproduct() {
-  const baseUrl = process.env.REACT_APP_BASE_URL ;
+  const baseUrl = process.env.REACT_APP_BASE_URL || "https://localhost:4000";
 
 
   const [all,setAll]=useState([]);
   const fetchInfo=async()=>{
-    const response = await fetch(`${baseUrl}/allproducts`);
+    const response = await fetch(`https://backend-e8zy.onrender.com//allproducts`);
     const data = await response.json();
     
     setAll(data);
@@ -18,7 +18,7 @@ function Listproduct() {
     fetchInfo()
   },[])
   const remove_product=async(id)=>{
-    await fetch(`${baseUrl}/removeproduct`,{
+    await fetch(`https://backend-e8zy.onrender.com//removeproduct`,{
       method:"POST",
       headers:{
         Accept:"application/json",
